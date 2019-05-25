@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let item of usuarios | async">
+      <ion-label>
+        <h3>
+          {{item.name}}
+        </h3>
+        <p>{{item.username}}</p>
+        <b>{{item.address.city}}</b>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- <br><br><br><br><br><br><br>
+  <div *ngIf="( usuarios | async) === null">
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+    <div text-center>
+        <ion-label class="animated flash slow infinite">
+          Cargando...
+        </ion-label>
+    </div>
+    <ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar>
+  </div> -->
+   
+ <ion-list *ngIf="( usuarios | async) === null">
+      <ion-progress-bar type="indeterminate"></ion-progress-bar>
+      <ion-item *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="animated flash slow infinite">
+        <ion-label >
+          <h3>
+            <ion-skeleton-text width="70%"></ion-skeleton-text>
+          </h3>
+          <p>
+              <ion-skeleton-text width="40%"></ion-skeleton-text>
+          </p>
+          <b>
+              <ion-skeleton-text width="60%"></ion-skeleton-text>
+          </b>
+        </ion-label>
+      </ion-item>
+    </ion-list>   
+    
+<!--{{usuarios | json}}-->
+</ion-content>
